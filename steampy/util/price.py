@@ -1,4 +1,5 @@
 from steampy.config.config import DEFAULT_CURRENCY
+from steampy.constants.fees import APP_FEES, STEAM_FEE, STEAM_PERCENT_FEE
 
 from decimal import Decimal, ROUND_DOWN
 
@@ -41,3 +42,18 @@ class Price:
     def __str__(self):
         pfx = CURRENCY_PREFIX[self.currency]
         return '{}{}'.format(pfx, self.value)
+
+def _get_market_fees(app_fee=None, app=None):
+    if app_fee is None:
+        if app is None:
+            raise RuntimeError("Missing argument")
+        app_fee = APP_FEES[app]
+    return app_fee
+
+def calculate_seller_price(market_price, app_fee=None, app=None):
+    percent_fee = STEAM_PERCENT_FEE + _get_market_fees(app_fee, app)
+    return (market_price / percent_fee) - STEAM_FEE
+
+def calculate_market_price(seller_price, app_fee=None, app=None):
+    percent_fee = STEAM_PERCENT_FEE + _get_market_fees(app_fee, app)
+    return percent_fee * (seller_price + STEAM_FEE)
