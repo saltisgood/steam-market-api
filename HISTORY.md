@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+0.3.0 (2021-11-27)
+------------------
+- Ci: Fixed file permissions on scripts. [Nick Stephen]
+- Release: version 0.2.0 🚀 [Nick Stephen]
+
+
 0.2.0 (2021-11-27)
 ------------------
 - Ci: Fixed branch name. [Nicholas Stephen]
