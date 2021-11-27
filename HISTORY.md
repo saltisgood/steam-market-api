@@ -2,12 +2,16 @@ Changelog
 =========
 
 
-0.1.2 (2021-08-14)
+0.2.0 (2021-11-27)
 ------------------
-- Fix release, README and windows CI. [Bruno Rocha]
-- Release: version 0.1.0. [Bruno Rocha]
+- Ci: Fixed branch name. [Nicholas Stephen]
+- Ci: Removed rename project ci action. [Nicholas Stephen]
+- Ci: Added CI and other python project stuff. [Nicholas Stephen]
+- Added some session handling and more flexible requests. [Nicholas
+  Stephen]
+- Added market fee calculator. [Nicholas Stephen]
+- Initial commit. [Nicholas Stephen]
+
+  - Basic request and responses
 
 
-0.1.0 (2021-08-14)
-------------------
-- Add release command. [Bruno Rocha]
