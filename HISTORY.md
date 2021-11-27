@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+0.5.0 (2021-11-27)
+------------------
+- Renamed to steam_exchange. [Nicholas Stephen]
+- Release: version 0.4.0 🚀 [Nick Stephen]
+
+
 0.4.0 (2021-11-27)
 ------------------
 - Docs: Removed template bit from README. [Nicholas Stephen]
