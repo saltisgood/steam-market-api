@@ -78,12 +78,12 @@ virtualenv:       ## Create a virtual environment.
 release:          ## Create a new tag for release.
 	@echo "WARNING: This operation will create s version tag and push to github"
 	@read -p "Version? (provide the next x.y.z semver) : " TAG
-	@echo "creating git tag : $${TAG}"
-	@git tag $${TAG}
 	@echo "$${TAG}" > steam_exchange/VERSION
 	@$(ENV_PREFIX)gitchangelog > HISTORY.md
 	@git add steam_exchange/VERSION HISTORY.md
 	@git commit -m "release: version $${TAG} 🚀"
+	@echo "creating git tag : $${TAG}"
+	@git tag $${TAG}
 	@git push -u origin HEAD --tags
 	@echo "Github Actions will detect the new tag and release the new version."
 
