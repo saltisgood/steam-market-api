@@ -39,6 +39,9 @@ class Price:
     def currency(self):
         return self._currency
     
+    def to_network_format(self):
+        return str((self._value * 100).to_integral_value())
+    
     def __str__(self):
         pfx = CURRENCY_PREFIX[self.currency]
         return '{}{}'.format(pfx, self.value)

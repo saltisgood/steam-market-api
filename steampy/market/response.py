@@ -3,11 +3,17 @@ from steampy.util.time import parse_time_str
 
 import json
 import re
+import requests
 
-class ItemNameIdResponse:
+class Response:
+    def __init__(self, resp: requests.Response):
+        self.response = resp
+
+class ItemNameIdResponse(Response):
     regex = re.compile(r'Market_LoadOrderSpread\(\s*(\d+)\s*\)')
 
     def __init__(self, resp):
+        super().__init__(resp)
         match = self.regex.search(resp.text)
         if match:
             self.name_id = int(match.group(1))
@@ -25,10 +31,11 @@ class PriceQuantity:
     def __str__(self):
         return '{{{} @ {}}}'.format(self.quantity, self.price)
 
-class ItemOrdersHistogramResponse:
+class ItemOrdersHistogramResponse(Response):
     TOP_ORDER_COUNT = 5
 
     def __init__(self, resp):
+        super().__init__(resp)
         resp = resp.json()
         self.highest_buy_order = Price(resp['highest_buy_order'])
         self.lowest_sell_order = Price(resp['lowest_sell_order'])
@@ -57,8 +64,9 @@ class ItemOrdersHistogramResponse:
         top_sells = ', '.join(str(pq) for pq in self.sells[:self.TOP_ORDER_COUNT])
         return 'ItemOrdersHistogramResponse{{best_buy={}, best_sell={}, buys={}, top_buys={}, sells={}, top_sells={}}}'.format(self.highest_buy_order, self.lowest_sell_order, self.buys_count, top_buys, self.sells_count, top_sells)
 
-class ItemPricingResponse:
+class ItemPricingResponse(Response):
     def __init__(self, resp):
+        super().__init__(resp)
         resp = resp.json()
         self.lowest_price = Price.parse(resp['lowest_price'])
         self.volume = resp['volume']
@@ -79,11 +87,12 @@ class MedianSaleHistory:
     def __str__(self):
         return f'[{self.time},{self.price},{self.quantity}]'
 
-class SalesHistoryResponse:
+class SalesHistoryResponse(Response):
     delim_start = 'var line1='
     delim_end = ';'
 
     def __init__(self, resp):
+        super().__init__(resp)
         start = resp.text.find(self.delim_start)
         end = resp.text.find(self.delim_end, start)
         text = resp.text[start+len(self.delim_start):end]
@@ -96,3 +105,12 @@ class SalesHistoryResponse:
 
     def __str__(self):
         return ','.join(str(x) for x in self.items[:10])
+
+class CreateListingResponse(Response):
+    def __init__(self, resp: requests.Response):
+        super().__init__(resp)
+
+class RemoveListingResponse(Response):
+    def __init__(self, resp: requests.Response):
+        super().__init__(resp)
+        self.ok = resp.ok
