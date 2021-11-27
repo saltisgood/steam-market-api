@@ -4,7 +4,7 @@ import argparse  # pragma: no cover
 def main() -> None:  # pragma: no cover
     """
     The main function executes on commands:
-    `python -m steampy` and `$ steampy `.
+    `python -m steam_exchange` and `$ steam_exchange `.
 
     This is your program's entry point.
 
@@ -18,8 +18,8 @@ def main() -> None:  # pragma: no cover
         * Run an application (Flask, FastAPI, Django, etc.)
     """
     parser = argparse.ArgumentParser(
-        description="steampy.",
-        epilog="Enjoy the steampy functionality!",
+        description="steam_exchange.",
+        epilog="Enjoy the steam_exchange functionality!",
     )
     # This is required positional argument
     parser.add_argument(

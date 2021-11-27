@@ -1,6 +1,6 @@
 # How to develop on this project
 
-steampy welcomes contributions from the community.
+steam_exchange welcomes contributions from the community.
 
 **You need PYTHON3!**
 
@@ -8,9 +8,9 @@ This instructions are for linux base systems. (Linux, MacOS, BSD, etc.)
 ## Setting up your own fork of this repo.
 
 - On github interface click on `Fork` button.
-- Clone your fork of this repo. `git clone git@github.com:YOUR_GIT_USERNAME/steampy.git`
-- Enter the directory `cd steampy`
-- Add upstream repo `git remote add upstream https://github.com/saltisgood/steampy`
+- Clone your fork of this repo. `git clone git@github.com:YOUR_GIT_USERNAME/steam_exchange.git`
+- Enter the directory `cd steam_exchange`
+- Add upstream repo `git remote add upstream https://github.com/saltisgood/steam_exchange`
 
 ## Setting up your own virtual environment
 

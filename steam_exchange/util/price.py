@@ -1,7 +1,7 @@
 from decimal import ROUND_DOWN, Decimal
 
-from steampy.config.config import DEFAULT_CURRENCY
-from steampy.constants.fees import APP_FEES, STEAM_FEE, STEAM_PERCENT_FEE
+from steam_exchange.config.config import DEFAULT_CURRENCY
+from steam_exchange.constants.fees import APP_FEES, STEAM_FEE, STEAM_PERCENT_FEE
 
 STEAM_PREFIXES = {
     "A$ ": "AUD",

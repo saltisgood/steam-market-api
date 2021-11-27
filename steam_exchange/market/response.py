@@ -3,8 +3,8 @@ import re
 
 import requests
 
-from steampy.util.price import Price
-from steampy.util.time import parse_time_str
+from steam_exchange.util.price import Price
+from steam_exchange.util.time import parse_time_str
 
 
 class Response:

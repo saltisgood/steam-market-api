@@ -1,13 +1,13 @@
 import requests
 
-from steampy.config.config import (
+from steam_exchange.config.config import (
     DEFAULT_COUNTRY,
     DEFAULT_CURRENCY,
     DEFAULT_LANGUAGE,
 )
-from steampy.constants.currency import CURRENCY_CODE_MAP
-from steampy.engine.request import Request
-from steampy.util.price import Price
+from steam_exchange.constants.currency import CURRENCY_CODE_MAP
+from steam_exchange.engine.request import Request
+from steam_exchange.util.price import Price
 
 from .response import (
     CreateListingResponse,
