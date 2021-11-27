@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+0.4.0 (2021-11-27)
+------------------
+- Docs: Removed template bit from README. [Nicholas Stephen]
+- Release: version 0.3.0 🚀 [Nick Stephen]
+
+
 0.3.0 (2021-11-27)
 ------------------
 - Ci: Fixed file permissions on scripts. [Nick Stephen]
